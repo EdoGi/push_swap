@@ -4,6 +4,8 @@ SRCS	=	\
 			moves_1.c \
 			moves_2.c \
 			main.c \
+			parsing.c \
+			utils.c \
 			\
 
 BONUS	=	\

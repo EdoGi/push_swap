@@ -1,42 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_cleaner.c                                    :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/01 18:33:05 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/12/04 20:25:52 by egiacomi         ###   ########.fr       */
+/*   Created: 2021/12/04 21:27:35 by egiacomi          #+#    #+#             */
+/*   Updated: 2021/12/04 22:12:20 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_delstk(t_stack *element, t_stack *root)
+void	ft_putchar_fd(char c, int fd)
 {
-	if (element)
+	write(fd, &c, 1);
+}
+
+void	ft_putstr_fd(char *s, int fd)
+{
+	int	i;
+
+	i = -1;
+	if (s)
 	{
-		element->prev->next = element->next;
-		element->next->prev = element->prev;
-		root->nbr -= 1;
-		free(element);
+		while (s[++i])
+			ft_putchar_fd(s[i], fd);
 	}
 }
 
-void	ft_stkclean(t_stack *root)
+int	ft_isspace(int c)
 {
-	t_stack	*clean;
-	t_stack	*tmp;
+	if (((signed)c >= 9 && (signed)c <= 13) || (signed)c == 32)
+		return (1);
+	return (0);
+}
 
-	if (root)
-	{
-		clean = root->next;
-		while (clean != root)
-		{
-			tmp = clean->next;
-			free(clean);
-			clean = tmp;
-		}
-	}
-	free(root);
+int	ft_isdigit(int c)
+{
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
 }
