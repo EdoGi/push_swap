@@ -6,7 +6,7 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 17:21:14 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/12/04 19:04:05 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/12/04 19:26:01 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,6 @@ void	mv_push(t_stack *root_give, t_stack *root_receive);
 void	mv_rotate(t_stack *root);
 void	mv_reverse_rotate(t_stack *root);
 void	mv_reverse_rotate_rotate(t_stack *aroot, t_stack *broot);
+int		main(int ac, char **av);
 
 #endif

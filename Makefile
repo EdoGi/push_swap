@@ -1,9 +1,12 @@
 SRCS	=	\
 			stack_manager.c	\
-			clean_leaks.c \
+			stack_cleaner.c \
+			moves_1.c \
+			moves_2.c \
+			main.c \
 			\
 
-BONUS	=	
+BONUS	=	\
 						
 OBJS 	= 	${SRCS:.c=.o}
 OBJS_B	= 	${BONUS:.c=.o}
@@ -18,13 +21,13 @@ HEADERS	=	./
 .c.o : 		${SRCS}
 			${CC} ${CFLAGS} -I ${HEADERS} -c $< -o $@
 
-all	:		${NAME} bonus
+all	:		${NAME}
 
-$(NAME) :	${SRCS}
-			${CC} ${CFLAGS} -I ${HEADERS} -c $< -o $@
+$(NAME) :	${OBJS}
+			${CC} ${CFLAGS} -I ${HEADERS} ${OBJS} -o $@
 
-bonus :		${SRCS_BONUS}
-			${CC} ${CFLAGS} -I ${HEADERS} -c $< -o $@
+bonus :		${OBJS_B}
+			${CC} ${CFLAGS} -I ${HEADERS} ${OBJS_B} -o $@
 
 clean :	
 			${RM} ${OBJS} ${OBJS_B}
