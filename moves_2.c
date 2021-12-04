@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   moves.c                                            :+:      :+:    :+:   */
+/*   moves_2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/01 19:36:42 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/12/04 17:44:03 by egiacomi         ###   ########.fr       */
+/*   Created: 2021/12/04 18:52:16 by egiacomi          #+#    #+#             */
+/*   Updated: 2021/12/04 19:03:05 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	mv_swap(t_stack *root)
+void	mv_reverse_rotate(t_stack *root)
 {
-	t_stack	*toswap;
+	t_stack	*last_to_first;
 
-	toswap = root->next->next;
-	ft_stkadd_top(root, toswap, 0);
+	last_to_first = root->prev;
+	last_to_first->next = root->next;
+	root->next->prev = last_to_first;
+	ft_stkadd_prev(last_to_first, root);
 }
 
-void	mv_swap_swap(t_stack *aroot, t_stack *broot)
+void	mv_reverse_rotate_rotate(t_stack *aroot, t_stack *broot)
 {
-	mv_swap(aroot);
-	mv_swap(broot);
-}
-
-void	mv_push(t_stack *root_give, t_stack *root_receive)
-{
-	t_stack	*element;
-
-	element = root_give->next;
-	ft_stkadd_top(root_receive, element, 0);
-	// ft_delstk(element, root_give);
+	mv_reverse_rotate(aroot);
+	mv_reverse_rotate(broot);
 }
