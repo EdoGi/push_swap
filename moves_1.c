@@ -6,12 +6,13 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 19:36:42 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/12/05 18:34:56 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/12/05 23:45:06 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/* Swap root_stack and take char 's' to know whether its "sa" or "sb" */
 void	mv_swap(t_stack *root, t_stack *mv, char s)
 {
 	t_stack	*toswap;
@@ -31,6 +32,7 @@ void	mv_swap_swap(t_stack *aroot, t_stack *broot, t_stack *mv)
 	mv_swap(broot, mv, 'b');
 }
 
+/* Push and take char 's' to know whether its "pa" (s = a) or "pb" (s != a) */
 void	mv_push(t_stack *root_give, t_stack *root_receive, t_stack *mv, char s)
 {
 	t_stack	*element;
@@ -50,6 +52,7 @@ void	mv_push(t_stack *root_give, t_stack *root_receive, t_stack *mv, char s)
 	ft_setidx(root_receive);
 }
 
+/* Rotate root_stack and take char 's' to know whether its "ra" or "rb" */
 void	mv_rotate(t_stack *root, t_stack *mv, char s)
 {
 	t_stack	*first_to_last;

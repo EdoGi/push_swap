@@ -6,12 +6,13 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 18:52:16 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/12/05 18:23:43 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/12/05 23:45:00 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/* Reverse rotate stack and take char 's' to know whether its "rra" or "rrb" */
 void	mv_reverse_rotate(t_stack *root, t_stack *mv, char s)
 {
 	t_stack	*last_to_first;
