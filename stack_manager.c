@@ -6,7 +6,7 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 17:26:42 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/12/04 19:25:27 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/12/05 15:37:02 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	ft_stkadd_prev(t_stack *element, t_stack *new)
 	}
 }
 
-void	ft_stkadd_top(t_stack *root, t_stack *element, int val)
+void	ft_stkadd_top(t_stack *root, t_stack *element, int val, char *s)
 {
 	t_stack	*new;
 
@@ -56,10 +56,14 @@ void	ft_stkadd_top(t_stack *root, t_stack *element, int val)
 	if (root)
 	{
 		if (!element)
+		{
 			new->nbr = val;
+			new->mv = s;
+		}
 		else
 		{
 			new->nbr = element->nbr;
+			new->mv = s;
 			ft_delstk(element, root);
 		}
 		ft_stkadd_next(root, new);
@@ -67,7 +71,7 @@ void	ft_stkadd_top(t_stack *root, t_stack *element, int val)
 	}
 }
 
-void	ft_stkadd_bot(t_stack *root, t_stack *element, int val)
+void	ft_stkadd_bot(t_stack *root, t_stack *element, int val, char *s)
 {
 	t_stack	*new;
 
@@ -75,10 +79,14 @@ void	ft_stkadd_bot(t_stack *root, t_stack *element, int val)
 	if (root)
 	{
 		if (!element)
+		{
 			new->nbr = val;
+			new->mv = s;
+		}
 		else
 		{
 			new->nbr = element->nbr;
+			new->mv = s;
 			ft_delstk(element, root);
 		}
 		ft_stkadd_prev(root, new);

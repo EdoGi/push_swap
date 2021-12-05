@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 16:54:14 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/12/04 20:26:55 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/12/05 15:40:30 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	main(int ac, char **av)
 	t_stack	*aroot;
 	t_stack	*broot;
 	t_stack	*it;
+	t_stack *mv;
 
 	(void)ac;
 	a = atoi(av[1]);
@@ -28,18 +29,19 @@ int	main(int ac, char **av)
 	c = atoi(av[3]);
 	aroot = ft_createstk();
 	broot = ft_createstk();
+	mv = ft_createstk();
 
-	ft_stkadd_top(aroot, NULL, a);
+	ft_stkadd_top(aroot, NULL, a, NULL);
 	printf("%d aroot numbers\n", aroot->nbr);
 	for (it = aroot->next ; it != aroot ; it = it->next)
 		printf("aroot %d\n", it->nbr);
 	
-	ft_stkadd_top(aroot, NULL, b);
+	ft_stkadd_top(aroot, NULL, b, NULL);
 	printf("%d aroot numbers\n", aroot->nbr);
 	for (it = aroot->next ; it != aroot ; it = it->next)
 		printf("aroot %d\n", it->nbr);
 	
-	ft_stkadd_bot(aroot, NULL, c);
+	ft_stkadd_bot(aroot, NULL, c, NULL);
 	printf("%d aroot numbers\n", aroot->nbr);
 	for (it = aroot->next ; it != aroot ; it = it->next)
 		printf("aroot %d\n", it->nbr);
@@ -49,7 +51,7 @@ int	main(int ac, char **av)
 	for (it = aroot->next ; it != aroot ; it = it->next)
 		printf("aroot %d\n", it->nbr);
 	
-	mv_swap(aroot);
+	mv_swap(aroot, mv, 'a');
 	printf("swapping\n");
 	for (it = aroot->next ; it != aroot ; it = it->next)
 		printf("aroot %d\n", it->nbr);
@@ -76,18 +78,18 @@ int	main(int ac, char **av)
 	// 	printf("broot %d\n", it->nbr);
 	// printf("%d broot numbers\n", broot->nbr);
 
-	ft_stkadd_top(aroot, NULL, b);
+	ft_stkadd_top(aroot, NULL, b, NULL);
 	printf("%d aroot numbers\n", aroot->nbr);
 	for (it = aroot->next ; it != aroot ; it = it->next)
 		printf("aroot %d\n", it->nbr);
-	mv_rotate(aroot);
+	mv_rotate(aroot, mv, 'a');
 	printf("rotating\n");
 	printf("%d aroot numbers\n", aroot->nbr);
 	for (it = aroot->next ; it != aroot ; it = it->next)
 		printf("aroot %d\n", it->nbr);
 
-	mv_reverse_rotate(aroot);
-	mv_reverse_rotate(aroot);
+	mv_reverse_rotate(aroot, mv, 'a');
+	mv_reverse_rotate(aroot, mv, 'a');
 	printf("2 rev_rotating\n");
 	printf("%d aroot numbers\n", aroot->nbr);
 	for (it = aroot->next ; it != aroot ; it = it->next)
@@ -101,7 +103,7 @@ int	main(int ac, char **av)
 	printf("%d aroot numbers\n", aroot->nbr);	
 	for (it = aroot->next ; it != aroot ; it = it->next)
 		printf("aroot %d\n", it->nbr);
-	mv_push(aroot, broot);
+	mv_push(aroot, broot, mv, 'b');
 	printf("%d aroot numbers\n", aroot->nbr);	
 	for (it = aroot->next ; it != aroot ; it = it->next)
 		printf("aroot %d\n", it->nbr);
@@ -109,8 +111,12 @@ int	main(int ac, char **av)
 	for (it = broot->next ; it != broot ; it = it->next)
 		printf("broot %d\n", it->nbr);
 
+	printf("\nMOOVES :\n");
+	for (it = mv->next ; it != mv ; it = it->next)
+		printf("%s\n", it->mv);
 	ft_stkclean(broot);
 	ft_stkclean(aroot);
+	ft_stkclean(mv);
 	return (0);
 }
 

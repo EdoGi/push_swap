@@ -6,7 +6,7 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 20:27:47 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/12/04 23:21:29 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/12/05 15:43:57 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_fill_stack_a(t_stack *aroot, char *val)
 	nbr = ft_atoi(val);
 	if (ft_exist(aroot, nbr) || ft_islong(nbr))
 		return (0);
-	ft_stkadd_top(aroot, NULL, nbr);
+	ft_stkadd_top(aroot, NULL, nbr, NULL);
 	return (1);
 }
 
@@ -29,7 +29,8 @@ int	main(int ac, char **av)
 {
 	t_stack	*aroot;
 	t_stack	*broot;
-	t_stack *it;
+	t_stack	*it;
+	t_stack	*mv;
 	int		i;
 
 	if (ac < 2)
@@ -37,6 +38,7 @@ int	main(int ac, char **av)
 	i = ac;
 	aroot = ft_createstk();
 	broot = ft_createstk();
+	mv = ft_createstk();
 	while (--i > 0)
 	{
 		if (!(ft_fill_stack_a(aroot, av[i])))
@@ -50,6 +52,7 @@ int	main(int ac, char **av)
 	printf("%d aroot numbers\n", aroot->nbr);
 	for (it = aroot->next ; it != aroot ; it = it->next)
 		printf("aroot %d\n", it->nbr);
+	ft_stkclean(mv);
 	ft_stkclean(broot);
 	ft_stkclean(aroot);
 }
