@@ -6,25 +6,26 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 17:26:42 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/12/05 18:11:32 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/12/05 18:37:12 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*ft_createstk(void)
+void	ft_setidx(t_stack *root)
 {
-	t_stack	*root;
+	t_stack	*it;
+	int		i;
 
-	root = malloc(sizeof(t_stack));
-	if (root)
+	root->idx = 0;
+	it = root->next;
+	i = 1;
+	while (it != root)
 	{
-		root->next = root;
-		root->prev = root;
-		root->nbr = 0;
-		root->idx = 0;
+		it->idx = i;
+		it = it->next;
+		i++;
 	}
-	return (root);
 }
 
 void	ft_stkadd_next(t_stack *element, t_stack *new)

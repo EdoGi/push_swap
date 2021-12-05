@@ -1,6 +1,6 @@
 SRCS	=	\
 			stack_manager.c	\
-			stack_cleaner.c \
+			stack_constructor.c \
 			moves_1.c \
 			moves_2.c \
 			main.c \

@@ -6,7 +6,7 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 20:27:47 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/12/05 18:17:17 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/12/05 20:36:09 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ int	main(int ac, char **av)
 {
 	t_stack	*aroot;
 	t_stack	*broot;
-	t_stack	*it;
 	t_stack	*mv;
 
 	aroot = ft_createstk();
@@ -61,6 +60,12 @@ int	main(int ac, char **av)
 	mv = ft_setup(ac, av, aroot, broot);
 	if (!(mv))
 		return (0);
+	ft_stkclean(mv);
+	ft_stkclean(broot);
+	ft_stkclean(aroot);
+}
+
+/*
 	ft_stkadd_top(broot, NULL, 75, NULL);
 	printf("\n%d aroot numbers\n", aroot->nbr);
 	for (it = aroot->next ; it != aroot ; it = it->next)
@@ -84,7 +89,4 @@ int	main(int ac, char **av)
 	printf("\nMOOVES :\n");
 	for (it = mv->next ; it != mv ; it = it->next)
 		printf("%s\n", it->mv);
-	ft_stkclean(mv);
-	ft_stkclean(broot);
-	ft_stkclean(aroot);
-}
+*/
