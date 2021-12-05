@@ -6,7 +6,7 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 20:27:47 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/12/05 20:36:09 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/12/05 22:13:32 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@ int	ft_fill_stack_a(t_stack *aroot, char *val)
 	if (!(ft_isnumber(val)))
 		return (0);
 	nbr = ft_atoi(val);
+	printf("for %ld test 1 ok\n", nbr);
 	if (ft_exist(aroot, nbr) || ft_islong(nbr))
 		return (0);
+	printf("for %ld test 2 ok\n", nbr);
 	ft_stkadd_top(aroot, NULL, nbr, NULL);
 	return (1);
 }
@@ -54,15 +56,20 @@ int	main(int ac, char **av)
 	t_stack	*aroot;
 	t_stack	*broot;
 	t_stack	*mv;
+	t_stack	*it;
 
 	aroot = ft_createstk();
 	broot = ft_createstk();
-	mv = ft_setup(ac, av, aroot, broot);
-	if (!(mv))
+	if (!(aroot) || !(broot))
 		return (0);
-	ft_stkclean(mv);
-	ft_stkclean(broot);
-	ft_stkclean(aroot);
+	mv = ft_setup(ac, av, aroot, broot);
+	if (!mv)
+		return (0);
+	ft_set_rank(aroot);
+	printf("\n%d aroot numbers\n", aroot->nbr);
+	for (it = aroot->next ; it != aroot ; it = it->next)
+		printf("aroot %d at idx : %d with rank : %d\n", it->nbr, it->idx, it->rank);
+	ft_stk_supercleaner(mv, broot, aroot, NULL);
 }
 
 /*

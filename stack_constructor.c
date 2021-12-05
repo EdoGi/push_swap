@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_cleaner.c                                    :+:      :+:    :+:   */
+/*   stack_constructor.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 18:33:05 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/12/05 18:26:33 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/12/05 21:17:07 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,16 @@ void	ft_stkclean(t_stack *root)
 		}
 	}
 	free(root);
+}
+
+void	ft_stk_supercleaner(t_stack *a, t_stack *b, t_stack *c, t_stack *d)
+{
+	if (a)
+		ft_stkclean(a);
+	if (b)
+		ft_stkclean(b);
+	if (c)
+		ft_stkclean(c);
+	if (d)
+		ft_stkclean(d);		
 }

@@ -6,7 +6,7 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 17:26:42 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/12/05 18:37:12 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/12/05 21:07:48 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	ft_stkadd_top(t_stack *root, t_stack *element, int val, char *s)
 	t_stack	*new;
 
 	new = malloc(sizeof(t_stack));
-	if (root)
+	if (new && root)
 	{
 		if (!element)
 		{
@@ -78,7 +78,7 @@ void	ft_stkadd_bot(t_stack *root, t_stack *element, int val, char *s)
 	t_stack	*new;
 
 	new = malloc(sizeof(t_stack));
-	if (root)
+	if (new && root)
 	{
 		if (!element)
 		{

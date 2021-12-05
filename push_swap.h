@@ -6,7 +6,7 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 17:21:14 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/12/05 18:11:55 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/12/05 22:17:05 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct s_list
 {
 	int				nbr;
 	int				idx;
+	int				rank;
 	char			*mv;
 	struct s_list	*prev;
 	struct s_list	*next;
@@ -37,6 +38,7 @@ void	ft_stkadd_bot(t_stack *root, t_stack *element, int val, char *s);
 void	ft_setidx(t_stack *root);
 void	ft_delstk(t_stack *element, t_stack *root);
 void	ft_stkclean(t_stack *root);
+void	ft_stk_supercleaner(t_stack *a, t_stack *b, t_stack *c, t_stack *d);
 void	mv_swap(t_stack *root, t_stack *mv, char s);
 void	mv_swap_swap(t_stack *aroot, t_stack *broot, t_stack *mv);
 void	mv_push(t_stack *root_give, t_stack *root_receive, t_stack *mv, char s);
@@ -53,5 +55,8 @@ int		ft_exist(t_stack *aroot, int nbr);
 int		ft_islong(long nbr);
 int		ft_isspace(int c);
 int		ft_isdigit(int c);
+int		ft_strlen(char *str);
+void	ft_set_rank(t_stack *aroot);
+// void	ft_sort_small(t_stack *aroot, t_stack *broot, t_stack *mv);
 
 #endif

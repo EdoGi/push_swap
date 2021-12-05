@@ -6,7 +6,7 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 21:23:20 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/12/04 23:03:16 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/12/05 22:20:00 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 long	ft_atoi(const char *nptr)
 {
-	int			i;
-	int			sign;
-	long long	ret;
+	int		i;
+	int		sign;
+	long	ret;
 
 	i = 0;
 	sign = 1;
@@ -44,6 +44,10 @@ int	ft_isnumber(char *arg)
 	int	i;
 
 	i = 0;
+	if (ft_strlen(arg) > 11)
+		return (0);
+	if (arg[i] == '-')
+		i++;
 	while (arg[i])
 	{
 		if (!(ft_isdigit(arg[i])))
@@ -69,7 +73,7 @@ int	ft_exist(t_stack *aroot, int nbr)
 
 int	ft_islong(long nbr)
 {
-	if ((nbr > INT_MAX) || (nbr < 0))
+	if ((nbr > INT_MAX))
 		return (1);
 	return (0);
 }
