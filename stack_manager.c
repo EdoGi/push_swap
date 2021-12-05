@@ -6,12 +6,13 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 17:26:42 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/12/05 21:07:48 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/12/05 23:23:24 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/* Set correct index's in root_parameter stack */
 void	ft_setidx(t_stack *root)
 {
 	t_stack	*it;
@@ -28,6 +29,7 @@ void	ft_setidx(t_stack *root)
 	}
 }
 
+/* Add new after element on a stack */
 void	ft_stkadd_next(t_stack *element, t_stack *new)
 {
 	if (new)
@@ -39,6 +41,7 @@ void	ft_stkadd_next(t_stack *element, t_stack *new)
 	}
 }
 
+/* Add new before element on a stack */
 void	ft_stkadd_prev(t_stack *element, t_stack *new)
 {
 	if (new)
@@ -50,6 +53,7 @@ void	ft_stkadd_prev(t_stack *element, t_stack *new)
 	}
 }
 
+/* Add element to the top of the stack (after root) */
 void	ft_stkadd_top(t_stack *root, t_stack *element, int val, char *s)
 {
 	t_stack	*new;
@@ -73,6 +77,7 @@ void	ft_stkadd_top(t_stack *root, t_stack *element, int val, char *s)
 	}
 }
 
+/* Add element to the bottom of the stack (before root) */
 void	ft_stkadd_bot(t_stack *root, t_stack *element, int val, char *s)
 {
 	t_stack	*new;

@@ -6,7 +6,7 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 21:23:20 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/12/05 22:20:00 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/12/05 23:29:58 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ long	ft_atoi(const char *nptr)
 	return (ret * sign);
 }
 
+/* Check whether the arg is a number and is smaller than strlen(INT_MAX) */
 int	ft_isnumber(char *arg)
 {
 	int	i;
@@ -57,6 +58,7 @@ int	ft_isnumber(char *arg)
 	return (1);
 }
 
+/* Check whether the nbr already exist in stack A */
 int	ft_exist(t_stack *aroot, int nbr)
 {
 	t_stack	*it;
@@ -71,9 +73,25 @@ int	ft_exist(t_stack *aroot, int nbr)
 	return (0);
 }
 
+/* Check whether the nbr is greater than INT_MAX */
 int	ft_islong(long nbr)
 {
 	if ((nbr > INT_MAX))
 		return (1);
 	return (0);
+}
+
+/* Check whether the stack is already sorted */
+int	ft_is_sorted(t_stack *aroot)
+{
+	t_stack	*it;
+
+	it = aroot->next;
+	while (it != aroot)
+	{
+		if (it->idx != (it->rank + 1))
+			return (0);
+		it = it->next;
+	}
+	return (1);
 }

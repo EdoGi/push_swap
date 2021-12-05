@@ -6,12 +6,34 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 20:27:47 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/12/05 22:13:32 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/12/05 23:20:43 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/* Set Rank to each number (rank = actual order in sorted list) */
+void	ft_set_rank(t_stack *aroot)
+{
+	t_stack	*it;
+	t_stack	*ic;
+
+	it = aroot->next;
+	while (it != aroot)
+	{
+		it->rank = 0;
+		ic = aroot->next;
+		while (ic != aroot)
+		{
+			if (it->nbr > ic->nbr)
+				it->rank += 1;
+			ic = ic->next;
+		}
+		it = it->next;
+	}
+}
+
+/* Fill stack A after checking Error on each Value  */
 int	ft_fill_stack_a(t_stack *aroot, char *val)
 {
 	long	nbr;
@@ -19,14 +41,13 @@ int	ft_fill_stack_a(t_stack *aroot, char *val)
 	if (!(ft_isnumber(val)))
 		return (0);
 	nbr = ft_atoi(val);
-	printf("for %ld test 1 ok\n", nbr);
 	if (ft_exist(aroot, nbr) || ft_islong(nbr))
 		return (0);
-	printf("for %ld test 2 ok\n", nbr);
 	ft_stkadd_top(aroot, NULL, nbr, NULL);
 	return (1);
 }
 
+/* SetUp (Inputs, Parsing, Filling A stack) & handle Error message */
 t_stack	*ft_setup(int ac, char **av, t_stack *aroot, t_stack *broot)
 {
 	int		i;
@@ -56,7 +77,6 @@ int	main(int ac, char **av)
 	t_stack	*aroot;
 	t_stack	*broot;
 	t_stack	*mv;
-	t_stack	*it;
 
 	aroot = ft_createstk();
 	broot = ft_createstk();
@@ -66,9 +86,10 @@ int	main(int ac, char **av)
 	if (!mv)
 		return (0);
 	ft_set_rank(aroot);
-	printf("\n%d aroot numbers\n", aroot->nbr);
-	for (it = aroot->next ; it != aroot ; it = it->next)
-		printf("aroot %d at idx : %d with rank : %d\n", it->nbr, it->idx, it->rank);
+	if (ft_is_sorted(aroot))
+		return (0);
+	if (ac < 4)
+		ft_sort_small(aroot, broot, mv);
 	ft_stk_supercleaner(mv, broot, aroot, NULL);
 }
 
@@ -76,23 +97,23 @@ int	main(int ac, char **av)
 	ft_stkadd_top(broot, NULL, 75, NULL);
 	printf("\n%d aroot numbers\n", aroot->nbr);
 	for (it = aroot->next ; it != aroot ; it = it->next)
-		printf("aroot %d at idx : %d\n", it->nbr, it->idx);
+		printf("aroot %d at idx : %d with rank : %d\n", it->nbr, it->idx, it->rank);
 	mv_push(broot, aroot, mv, 'a');
 	printf("\nPUSH : %d aroot numbers\n", aroot->nbr);
 	for (it = aroot->next ; it != aroot ; it = it->next)
-		printf("aroot %d at idx : %d\n", it->nbr, it->idx);
+		printf("aroot %d at idx : %d with rank : %d\n", it->nbr, it->idx, it->rank);
 	mv_rotate(aroot, mv, 'a');
 	printf("\nROTATE : %d aroot numbers\n", aroot->nbr);
 	for (it = aroot->next ; it != aroot ; it = it->next)
-		printf("aroot %d at idx : %d\n", it->nbr, it->idx);
+		printf("aroot %d at idx : %d with rank : %d\n", it->nbr, it->idx, it->rank);
 	mv_swap(aroot, mv, 'a');
 	printf("\nSWAP : %d aroot numbers\n", aroot->nbr);
 	for (it = aroot->next ; it != aroot ; it = it->next)
-		printf("aroot %d at idx : %d\n", it->nbr, it->idx);
+		printf("aroot %d at idx : %d with rank : %d\n", it->nbr, it->idx, it->rank);
 	mv_reverse_rotate(aroot, mv, 'a');
 	printf("\nREVERSE R : %d aroot numbers\n", aroot->nbr);
 	for (it = aroot->next ; it != aroot ; it = it->next)
-		printf("aroot %d at idx : %d\n", it->nbr, it->idx);
+		printf("aroot %d at idx : %d with rank : %d\n", it->nbr, it->idx, it->rank);
 	printf("\nMOOVES :\n");
 	for (it = mv->next ; it != mv ; it = it->next)
 		printf("%s\n", it->mv);
