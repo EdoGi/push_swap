@@ -6,7 +6,7 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 17:26:42 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/12/05 15:37:02 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/12/05 18:11:32 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ t_stack	*ft_createstk(void)
 		root->next = root;
 		root->prev = root;
 		root->nbr = 0;
+		root->idx = 0;
 	}
 	return (root);
 }

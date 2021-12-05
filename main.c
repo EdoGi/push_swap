@@ -6,7 +6,7 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 20:27:47 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/12/05 16:10:58 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/12/05 18:17:17 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ t_stack	*ft_setup(int ac, char **av, t_stack *aroot, t_stack *broot)
 			return (0);
 		}
 	}
+	ft_setidx(aroot);
 	return (mv);
 }
 
@@ -60,9 +61,29 @@ int	main(int ac, char **av)
 	mv = ft_setup(ac, av, aroot, broot);
 	if (!(mv))
 		return (0);
-	printf("%d aroot numbers\n", aroot->nbr);
+	ft_stkadd_top(broot, NULL, 75, NULL);
+	printf("\n%d aroot numbers\n", aroot->nbr);
 	for (it = aroot->next ; it != aroot ; it = it->next)
-		printf("aroot %d\n", it->nbr);
+		printf("aroot %d at idx : %d\n", it->nbr, it->idx);
+	mv_push(broot, aroot, mv, 'a');
+	printf("\nPUSH : %d aroot numbers\n", aroot->nbr);
+	for (it = aroot->next ; it != aroot ; it = it->next)
+		printf("aroot %d at idx : %d\n", it->nbr, it->idx);
+	mv_rotate(aroot, mv, 'a');
+	printf("\nROTATE : %d aroot numbers\n", aroot->nbr);
+	for (it = aroot->next ; it != aroot ; it = it->next)
+		printf("aroot %d at idx : %d\n", it->nbr, it->idx);
+	mv_swap(aroot, mv, 'a');
+	printf("\nSWAP : %d aroot numbers\n", aroot->nbr);
+	for (it = aroot->next ; it != aroot ; it = it->next)
+		printf("aroot %d at idx : %d\n", it->nbr, it->idx);
+	mv_reverse_rotate(aroot, mv, 'a');
+	printf("\nREVERSE R : %d aroot numbers\n", aroot->nbr);
+	for (it = aroot->next ; it != aroot ; it = it->next)
+		printf("aroot %d at idx : %d\n", it->nbr, it->idx);
+	printf("\nMOOVES :\n");
+	for (it = mv->next ; it != mv ; it = it->next)
+		printf("%s\n", it->mv);
 	ft_stkclean(mv);
 	ft_stkclean(broot);
 	ft_stkclean(aroot);

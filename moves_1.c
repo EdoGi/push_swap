@@ -6,7 +6,7 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 19:36:42 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/12/05 15:38:04 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/12/05 18:14:07 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	mv_swap(t_stack *root, t_stack *mv, char s)
 		ft_stkadd_bot(mv, NULL, 0, "sa");
 	else
 		ft_stkadd_bot(mv, NULL, 0, "sb");
+	ft_setidx(root);
 }
 
 void	mv_swap_swap(t_stack *aroot, t_stack *broot, t_stack *mv)
@@ -45,6 +46,8 @@ void	mv_push(t_stack *root_give, t_stack *root_receive, t_stack *mv, char s)
 		ft_stkadd_bot(mv, NULL, 0, "pa");
 	else
 		ft_stkadd_bot(mv, NULL, 0, "pb");
+	ft_setidx(root_give);
+	ft_setidx(root_receive);
 }
 
 void	mv_rotate(t_stack *root, t_stack *mv, char s)
@@ -59,6 +62,7 @@ void	mv_rotate(t_stack *root, t_stack *mv, char s)
 		ft_stkadd_bot(mv, NULL, 0, "ra");
 	else
 		ft_stkadd_bot(mv, NULL, 0, "rb");
+	ft_setidx(root);
 }
 
 void	mv_rotate_rotate(t_stack *aroot, t_stack *broot, t_stack *mv)
