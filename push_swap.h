@@ -6,7 +6,7 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 17:21:14 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/12/05 15:37:09 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/12/05 16:03:09 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_list
 }					t_stack;
 
 t_stack	*ft_createstk(void);
+t_stack	*ft_setup(int ac, char **av, t_stack *aroot, t_stack *broot);
 void	ft_stkadd_next(t_stack *element, t_stack *new);
 void	ft_stkadd_prev(t_stack *element, t_stack *new);
 void	ft_stkadd_top(t_stack *root, t_stack *element, int val, char *s);

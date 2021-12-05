@@ -6,7 +6,7 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 20:27:47 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/12/05 15:43:57 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/12/05 16:10:58 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,14 @@ int	ft_fill_stack_a(t_stack *aroot, char *val)
 	return (1);
 }
 
-int	main(int ac, char **av)
+t_stack	*ft_setup(int ac, char **av, t_stack *aroot, t_stack *broot)
 {
-	t_stack	*aroot;
-	t_stack	*broot;
-	t_stack	*it;
-	t_stack	*mv;
 	int		i;
+	t_stack	*mv;
 
 	if (ac < 2)
 		return (0);
 	i = ac;
-	aroot = ft_createstk();
-	broot = ft_createstk();
 	mv = ft_createstk();
 	while (--i > 0)
 	{
@@ -46,9 +41,25 @@ int	main(int ac, char **av)
 			ft_putstr_fd("Error\n", 2);
 			ft_stkclean(broot);
 			ft_stkclean(aroot);
+			ft_stkclean(mv);
 			return (0);
 		}
 	}
+	return (mv);
+}
+
+int	main(int ac, char **av)
+{
+	t_stack	*aroot;
+	t_stack	*broot;
+	t_stack	*it;
+	t_stack	*mv;
+
+	aroot = ft_createstk();
+	broot = ft_createstk();
+	mv = ft_setup(ac, av, aroot, broot);
+	if (!(mv))
+		return (0);
 	printf("%d aroot numbers\n", aroot->nbr);
 	for (it = aroot->next ; it != aroot ; it = it->next)
 		printf("aroot %d\n", it->nbr);
