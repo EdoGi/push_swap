@@ -6,7 +6,7 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 18:33:05 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/12/05 23:27:52 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/12/10 22:53:07 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,23 @@ void	ft_stkclean(t_stack *root)
 		}
 	}
 	free(root);
+}
+
+/* Set correct index's in root_parameter stack */
+void	ft_setidx(t_stack *root)
+{
+	t_stack	*it;
+	int		i;
+
+	root->idx = 0;
+	it = root->next;
+	i = 1;
+	while (it != root)
+	{
+		it->idx = i;
+		it = it->next;
+		i++;
+	}
 }
 
 /* Delete and free 4 stack in the same time */

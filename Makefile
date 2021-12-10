@@ -7,6 +7,7 @@ SRCS	=	\
 			parsing.c \
 			utils.c \
 			sort.c \
+			sort_utils.c \
 			\
 
 BONUS	=	\

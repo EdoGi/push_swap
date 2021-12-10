@@ -6,27 +6,26 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 17:26:42 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/12/05 23:23:24 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/12/10 22:54:14 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* Set correct index's in root_parameter stack */
-void	ft_setidx(t_stack *root)
+/* Return the number of elements inside stack_root */
+int	ft_stack_size(t_stack *root)
 {
 	t_stack	*it;
 	int		i;
 
-	root->idx = 0;
 	it = root->next;
-	i = 1;
+	i = 0;
 	while (it != root)
 	{
-		it->idx = i;
-		it = it->next;
 		i++;
+		it = it->next;
 	}
+	return (i);
 }
 
 /* Add new after element on a stack */

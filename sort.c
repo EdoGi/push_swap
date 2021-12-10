@@ -6,7 +6,7 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 20:51:41 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/12/10 22:19:28 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/12/10 23:54:55 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,33 @@ void	ft_sort_small(t_stack *aroot, t_stack *mv)
 		if (aroot->next->rank == 1)
 			mv_swap(aroot, mv, 'a');
 	}
+}
+
+void	ft_sort_medium(t_stack *aroot, t_stack *broot, t_stack *mv)
+{
+	t_stack	*it;
+	int		lenght;
+	int		i;
+
+	i = 0;
+	printf("hello\n");
+	while (ft_stack_size(aroot) > 3)
+	{
+		it = aroot->next;
+		printf("\tfirst is %d\nand i is %d\nfor %d size\n", it->nbr, i, ft_stack_size(aroot));
+		if (it->rank != i)
+		{
+			while (it->rank != i)
+				it = it->next;
+			lenght = ft_stack_size(aroot);
+			if (it->idx < (lenght / 2))
+				ft_down_top_ra(aroot, it->rank, mv);
+			else if
+				ft_down_top_rra(aroot, it->rank, mv);
+		}
+		mv_push(aroot, broot, mv, 'b');
+		i++;
+	}
+	ft_sort_small(aroot, mv);
+	ft_b_to_a(aroot, broot, mv);
 }

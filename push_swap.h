@@ -6,7 +6,7 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 17:21:14 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/12/10 21:51:25 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/12/10 23:19:12 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void	ft_stkadd_next(t_stack *element, t_stack *new);
 void	ft_stkadd_prev(t_stack *element, t_stack *new);
 void	ft_stkadd_top(t_stack *root, t_stack *element, int val, char *s);
 void	ft_stkadd_bot(t_stack *root, t_stack *element, int val, char *s);
+int		ft_stack_size(t_stack *root);
 void	ft_setidx(t_stack *root);
 void	ft_delstk(t_stack *element, t_stack *root);
 void	ft_stkclean(t_stack *root);
@@ -63,6 +64,10 @@ void	mv_reverse_rotate_rotate(t_stack *aroot, t_stack *broot, t_stack *mv);
 
 /* SORTING */
 void	ft_sort_small(t_stack *aroot, t_stack *mv);
+void	ft_sort_medium(t_stack *aroot, t_stack *broot, t_stack *mv);
+void	ft_down_top_rra(t_stack *root, int element_rank, t_stack *mv);
+void	ft_down_top_ra(t_stack *root, int element_rank, t_stack *mv);
+void	ft_b_to_a(t_stack *aroot, t_stack *broot, t_stack *mv);
 
 /* UTILS */
 void	ft_putchar_fd(char c, int fd);
