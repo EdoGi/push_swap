@@ -6,7 +6,7 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 17:21:14 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/12/05 23:14:53 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/12/10 21:51:25 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	mv_reverse_rotate(t_stack *root, t_stack *mv, char s);
 void	mv_reverse_rotate_rotate(t_stack *aroot, t_stack *broot, t_stack *mv);
 
 /* SORTING */
-void	ft_sort_small(t_stack *aroot, t_stack *broot, t_stack *mv);
+void	ft_sort_small(t_stack *aroot, t_stack *mv);
 
 /* UTILS */
 void	ft_putchar_fd(char c, int fd);

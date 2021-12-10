@@ -6,7 +6,7 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 20:27:47 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/12/05 23:20:43 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/12/10 22:20:55 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,8 @@ int	main(int ac, char **av)
 	ft_set_rank(aroot);
 	if (ft_is_sorted(aroot))
 		return (0);
-	if (ac < 4)
-		ft_sort_small(aroot, broot, mv);
+	if (ac <= 4)
+		ft_sort_small(aroot, mv);
 	ft_stk_supercleaner(mv, broot, aroot, NULL);
 }
 
