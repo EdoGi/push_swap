@@ -6,7 +6,7 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 20:51:41 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/12/11 00:00:48 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/12/11 00:09:13 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void	ft_sort_medium(t_stack *aroot, t_stack *broot, t_stack *mv)
 	t_stack	*it;
 	int		lenght;
 	int		i;
+	t_stack	*n;
 
 	i = 0;
 	printf("hello\n");
@@ -50,6 +51,8 @@ void	ft_sort_medium(t_stack *aroot, t_stack *broot, t_stack *mv)
 	{
 		it = aroot->next;
 		printf("\tfirst is %d\nand i is %d\nfor %d size\n", it->nbr, i, ft_stack_size(aroot));
+		for (n = aroot->next ; n != aroot ; n = n->next)
+			printf("aroot %d\n", n->nbr);		
 		while (it->rank != i)
 			it = it->next;
 		printf("hello\n");
