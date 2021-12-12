@@ -6,7 +6,7 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 20:27:47 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/12/10 23:36:04 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/12/12 15:44:51 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,14 +89,15 @@ int	main(int ac, char **av)
 	ft_set_rank(aroot);
 	if (ft_is_sorted(aroot))
 		return (0);
-	for (it = aroot->next ; it != aroot ; it = it->next)
-		printf("aroot %d at idx : %d with rank : %d\n", it->nbr, it->idx, it->rank);
+	// for (it = aroot->next ; it != aroot ; it = it->next)
+	// 	printf("aroot %d at idx : %d with rank : %d\n", it->nbr, it->idx, it->rank);
 	if (ac <= 4)
-		ft_sort_small(aroot, mv);
-	else if (ac <= 100)
-		ft_sort_medium(aroot, broot, mv);
-	for (it = aroot->next ; it != aroot ; it = it->next)
-		printf("aroot %d at idx : %d with rank : %d\n", it->nbr, it->idx, it->rank);
+		ft_sort_three(aroot, mv);
+	else if (ac <= 11)
+		ft_sort_small(aroot, broot, mv);
+	printf("\nFINISH\n");
+	// for (it = aroot->next ; it != aroot ; it = it->next)
+	// 	printf("aroot %d at idx : %d with rank : %d\n", it->nbr, it->idx, it->rank);
 	printf("\nMOOVES :\n");
 	for (it = mv->next ; it != mv ; it = it->next)
 		printf("%s\n", it->mv);
