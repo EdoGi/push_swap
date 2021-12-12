@@ -6,7 +6,7 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 20:27:47 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/12/12 20:41:43 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/12/12 21:21:53 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,6 @@ int	main(int ac, char **av)
 	t_stack	*aroot;
 	t_stack	*broot;
 	t_stack	*mv;
-	t_stack	*it;
 
 	aroot = ft_createstk();
 	broot = ft_createstk();
@@ -89,47 +88,14 @@ int	main(int ac, char **av)
 	ft_set_rank(aroot);
 	if (ft_is_sorted(aroot))
 		return (0);
-	// for (it = aroot->next ; it != aroot ; it = it->next)
-	// 	printf("aroot %d at idx : %d with rank : %d\n", it->nbr, it->idx, it->rank);
 	if (ac <= 4)
 		ft_sort_three(aroot, mv);
 	else if (ac <= 11)
 		ft_sort_small(aroot, broot, mv);
 	else if (ac <= 101)
-		ft_sort_medium(aroot, broot, mv, (ft_stack_size(aroot) / 4));
+		ft_sort_medium(aroot, broot, mv, (ft_stack_size(aroot) / 5));
 	else if (ac >= 101)
-		ft_sort_medium(aroot, broot, mv, (ft_stack_size(aroot) / 8));
-	// printf("\nFINISH\n");
-	// for (it = aroot->next ; it != aroot ; it = it->next)
-	// 	printf("aroot %d at idx : %d with rank : %d\n", it->nbr, it->idx, it->rank);
-	// printf("\nMOOVES :\n");
-	for (it = mv->next ; it != mv ; it = it->next)
-		printf("%s\n", it->mv);
+		ft_sort_medium(aroot, broot, mv, (ft_stack_size(aroot) / 10));
+	ft_print_mooves(mv);
 	ft_stk_supercleaner(mv, broot, aroot, NULL);
 }
-
-/*
-	ft_stkadd_top(broot, NULL, 75, NULL);
-	printf("\n%d aroot numbers\n", aroot->nbr);
-	for (it = aroot->next ; it != aroot ; it = it->next)
-		printf("aroot %d at idx : %d with rank : %d\n", it->nbr, it->idx, it->rank);
-	mv_push(broot, aroot, mv, 'a');
-	printf("\nPUSH : %d aroot numbers\n", aroot->nbr);
-	for (it = aroot->next ; it != aroot ; it = it->next)
-		printf("aroot %d at idx : %d with rank : %d\n", it->nbr, it->idx, it->rank);
-	mv_rotate(aroot, mv, 'a');
-	printf("\nROTATE : %d aroot numbers\n", aroot->nbr);
-	for (it = aroot->next ; it != aroot ; it = it->next)
-		printf("aroot %d at idx : %d with rank : %d\n", it->nbr, it->idx, it->rank);
-	mv_swap(aroot, mv, 'a');
-	printf("\nSWAP : %d aroot numbers\n", aroot->nbr);
-	for (it = aroot->next ; it != aroot ; it = it->next)
-		printf("aroot %d at idx : %d with rank : %d\n", it->nbr, it->idx, it->rank);
-	mv_reverse_rotate(aroot, mv, 'a');
-	printf("\nREVERSE R : %d aroot numbers\n", aroot->nbr);
-	for (it = aroot->next ; it != aroot ; it = it->next)
-		printf("aroot %d at idx : %d with rank : %d\n", it->nbr, it->idx, it->rank);
-	printf("\nMOOVES :\n");
-	for (it = mv->next ; it != mv ; it = it->next)
-		printf("%s\n", it->mv);
-*/

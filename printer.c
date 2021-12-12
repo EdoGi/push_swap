@@ -1,37 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   printer.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/04 21:27:35 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/12/12 21:08:53 by egiacomi         ###   ########.fr       */
+/*   Created: 2021/12/12 21:03:59 by egiacomi          #+#    #+#             */
+/*   Updated: 2021/12/12 22:19:52 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_isspace(int c)
+void	ft_putchar_fd(char c, int fd)
 {
-	if (((signed)c >= 9 && (signed)c <= 13) || (signed)c == 32)
-		return (1);
-	return (0);
+	write(fd, &c, 1);
 }
 
-int	ft_isdigit(int c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
-}
-
-int	ft_strlen(char *str)
+void	ft_putstr_fd(char *s, int fd)
 {
 	int	i;
 
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
+	i = -1;
+	if (s)
+	{
+		while (s[++i])
+			ft_putchar_fd(s[i], fd);
+	}
 }
+
+void	ft_print_mooves(t_stack *mv)
+{
+	t_stack	*it;
+
+	it = mv->next;
+	while(it != mv)
+	{
+		ft_putstr_fd(it->mv, 1);
+		ft_putchar_fd('\n', 1);
+		it = it->next;
+	}
+}
+	

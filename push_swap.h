@@ -6,7 +6,7 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 17:21:14 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/12/12 20:49:26 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/12/12 21:09:38 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,12 @@ void	ft_b_to_a(t_stack *aroot, t_stack *broot, t_stack *mv);
 void	ft_sort_b_to_a(t_stack *aroot, t_stack *broot, t_stack *mv);
 int		ft_max_rank(t_stack *root);
 
-/* UTILS */
+/* PRINTER */
+void	ft_print_mooves(t_stack *mv);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
+
+/* UTILS */
 int		ft_isspace(int c);
 int		ft_isdigit(int c);
 int		ft_strlen(char *str);

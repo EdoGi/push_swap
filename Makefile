@@ -8,6 +8,7 @@ SRCS	=	\
 			utils.c \
 			sort.c \
 			sort_utils.c \
+			printer.c \
 			\
 
 BONUS	=	\
