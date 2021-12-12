@@ -6,7 +6,7 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 19:36:42 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/12/12 17:18:38 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/12/12 20:48:42 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,13 @@ void	mv_push(t_stack *root_give, t_stack *root_receive, t_stack *mv, char s)
 }
 
 /* Move an element from stack_root to top_of_stack in minimum moves */
-void	mv_optimal_move_top(t_stack *root, t_stack *element, t_stack *mv)
+void	mv_optimal_move_top(t_stack *root, t_stack *elmt, t_stack *mv, char s)
 {
 	int	lenght;
 
 	lenght = ft_stack_size(root);
-	if (element->idx <= ((lenght / 2) + 1))
-		ft_down_top_ra(root, element->rank, mv);
+	if (elmt->idx <= ((lenght / 2) + 1))
+		ft_down_top_ra(root, elmt->rank, mv, s);
 	else
-		ft_down_top_rra(root, element->rank, mv);
+		ft_down_top_rra(root, elmt->rank, mv, s);
 }

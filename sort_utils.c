@@ -6,7 +6,7 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 22:48:00 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/12/12 20:24:19 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/12/12 20:55:55 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,26 +28,26 @@ int	ft_max_rank(t_stack *root)
 	return (max);
 }
 
-void	ft_down_top_ra(t_stack *root, int element_rank, t_stack *mv)
+void	ft_down_top_ra(t_stack *root, int element_rank, t_stack *mv, char s)
 {
 	t_stack	*first;
 
 	first = root->next;
 	while (first->rank != element_rank)
 	{
-		mv_rotate(root, mv, 'a');
+		mv_rotate(root, mv, s);
 		first = root->next;
 	}
 }
 
-void	ft_down_top_rra(t_stack *root, int element_rank, t_stack *mv)
+void	ft_down_top_rra(t_stack *root, int element_rank, t_stack *mv, char s)
 {
 	t_stack	*first;
 
 	first = root->next;
 	while (first->rank != element_rank)
 	{
-		mv_reverse_rotate(root, mv, 'a');
+		mv_reverse_rotate(root, mv, s);
 		first = root->next;
 	}
 }
@@ -64,16 +64,12 @@ void	ft_sort_b_to_a(t_stack *aroot, t_stack *broot, t_stack *mv)
 	int		i;
 
 	i = ft_max_rank(broot);
-	(void)broot;
-	(void)mv;
-	(void)it;
-	(void)aroot;
 	while (ft_stack_size(broot) != 0)
 	{
 		it = broot->next;
 		while (it->rank != i)
 			it = it->next;
-		mv_optimal_move_top(broot, it, mv);
+		mv_optimal_move_top(broot, it, mv, 'b');
 		mv_push(broot, aroot, mv, 'a');
 		i--;
 	}
