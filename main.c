@@ -6,7 +6,7 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 20:27:47 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/12/12 15:44:51 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/12/12 20:33:41 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,11 +95,13 @@ int	main(int ac, char **av)
 		ft_sort_three(aroot, mv);
 	else if (ac <= 11)
 		ft_sort_small(aroot, broot, mv);
+	else if (ac <= 101)
+		ft_sort_medium(aroot, broot, mv, (ft_stack_size(aroot) / 4));
 	printf("\nFINISH\n");
 	// for (it = aroot->next ; it != aroot ; it = it->next)
 	// 	printf("aroot %d at idx : %d with rank : %d\n", it->nbr, it->idx, it->rank);
-	printf("\nMOOVES :\n");
-	for (it = mv->next ; it != mv ; it = it->next)
+	// printf("\nMOOVES :\n");
+	// for (it = mv->next ; it != mv ; it = it->next)
 		printf("%s\n", it->mv);
 	ft_stk_supercleaner(mv, broot, aroot, NULL);
 }

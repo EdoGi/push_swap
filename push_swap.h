@@ -6,7 +6,7 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 17:21:14 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/12/12 15:45:06 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/12/12 18:15:52 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ int		ft_is_sorted(t_stack *aroot);
 t_stack	*ft_createstk(void);
 void	ft_stkadd_next(t_stack *element, t_stack *new);
 void	ft_stkadd_prev(t_stack *element, t_stack *new);
-void	ft_stkadd_top(t_stack *root, t_stack *element, int val, char *s);
-void	ft_stkadd_bot(t_stack *root, t_stack *element, int val, char *s);
+void	ft_stkadd_top(t_stack *root, t_stack *element, int val, char *mv);
+void	ft_stkadd_bot(t_stack *root, t_stack *element, int val, char *mv);
 int		ft_stack_size(t_stack *root);
 void	ft_setidx(t_stack *root);
 void	ft_delstk(t_stack *element, t_stack *root);
@@ -61,13 +61,17 @@ void	mv_rotate(t_stack *root, t_stack *mv, char s);
 void	mv_rotate_rotate(t_stack *aroot, t_stack *broot, t_stack *mv);
 void	mv_reverse_rotate(t_stack *root, t_stack *mv, char s);
 void	mv_reverse_rotate_rotate(t_stack *aroot, t_stack *broot, t_stack *mv);
+void	mv_optimal_move_top(t_stack *root, t_stack *element, t_stack *mv);
 
 /* SORTING */
 void	ft_sort_three(t_stack *aroot, t_stack *mv);
 void	ft_sort_small(t_stack *aroot, t_stack *broot, t_stack *mv);
+void	ft_sort_medium(t_stack *aroot, t_stack *broot, t_stack *mv, int chunk);
 void	ft_down_top_rra(t_stack *root, int element_rank, t_stack *mv);
 void	ft_down_top_ra(t_stack *root, int element_rank, t_stack *mv);
 void	ft_b_to_a(t_stack *aroot, t_stack *broot, t_stack *mv);
+void	ft_sort_b_to_a(t_stack *aroot, t_stack *broot, t_stack *mv);
+int		ft_max_rank(t_stack *root);
 
 /* UTILS */
 void	ft_putchar_fd(char c, int fd);

@@ -6,7 +6,7 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 19:36:42 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/12/05 23:45:06 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/12/12 17:18:38 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,24 +52,14 @@ void	mv_push(t_stack *root_give, t_stack *root_receive, t_stack *mv, char s)
 	ft_setidx(root_receive);
 }
 
-/* Rotate root_stack and take char 's' to know whether its "ra" or "rb" */
-void	mv_rotate(t_stack *root, t_stack *mv, char s)
+/* Move an element from stack_root to top_of_stack in minimum moves */
+void	mv_optimal_move_top(t_stack *root, t_stack *element, t_stack *mv)
 {
-	t_stack	*first_to_last;
+	int	lenght;
 
-	first_to_last = root->next;
-	first_to_last->prev = root->prev;
-	root->prev->next = first_to_last;
-	ft_stkadd_next(first_to_last, root);
-	if (s == 'a')
-		ft_stkadd_bot(mv, NULL, 0, "ra");
+	lenght = ft_stack_size(root);
+	if (element->idx <= ((lenght / 2) + 1))
+		ft_down_top_ra(root, element->rank, mv);
 	else
-		ft_stkadd_bot(mv, NULL, 0, "rb");
-	ft_setidx(root);
-}
-
-void	mv_rotate_rotate(t_stack *aroot, t_stack *broot, t_stack *mv)
-{
-	mv_rotate(aroot, mv, 'a');
-	mv_rotate(broot, mv, 'b');
+		ft_down_top_rra(root, element->rank, mv);
 }
