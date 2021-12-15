@@ -6,7 +6,7 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 21:03:59 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/12/12 22:25:37 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/12/15 21:40:39 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ void	ft_putstr_fd(char *s, int fd)
 	}
 }
 
-void	ft_print_mooves(t_stack *mv)
+/* Print the moves used to sort in stdout with \n after each move */
+void	ft_print_moves(t_stack *mv)
 {
 	t_stack	*it;
 

@@ -6,7 +6,7 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 17:21:14 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/12/15 19:52:52 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/12/15 21:45:36 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
-# include <stdio.h>
 
 typedef struct s_list
 {
@@ -76,7 +75,7 @@ void	ft_sort_b_to_a(t_stack *aroot, t_stack *broot, t_stack *mv);
 int		ft_max_rank(t_stack *root);
 
 /* PRINTER */
-void	ft_print_mooves(t_stack *mv);
+void	ft_print_moves(t_stack *mv);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 

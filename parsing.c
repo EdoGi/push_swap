@@ -6,12 +6,13 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 21:23:20 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/12/05 23:29:58 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/12/15 21:44:35 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/* Classic atoi function */
 long	ft_atoi(const char *nptr)
 {
 	int		i;

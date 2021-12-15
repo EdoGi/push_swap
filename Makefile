@@ -7,7 +7,6 @@ SRCS	=	\
 			parsing.c \
 			utils.c \
 			sort.c \
-			radix_sort.c \
 			sort_utils.c \
 			printer.c \
 			\

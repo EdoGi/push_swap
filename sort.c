@@ -6,7 +6,7 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 20:51:41 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/12/12 20:52:10 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/12/15 21:44:56 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,4 +86,33 @@ void	ft_sort_medium(t_stack *aroot, t_stack *broot, t_stack *mv, int chunk)
 		chunk += add;
 	}
 	ft_sort_b_to_a(aroot, broot, mv);
+}
+
+/* Radix sort function ; use bitwise operation to sort with two stacks */
+void	ft_sort_big(t_stack *aroot, t_stack *broot, t_stack *mv)
+{
+	int		bits;
+	int		max_val;
+	int		i;
+	int		j;
+	int		size;
+
+	size = aroot->nbr;
+	bits = 0;
+	j = -1;
+	max_val = ft_max_rank(aroot);
+	while (max_val >> bits)
+		++bits;
+	while (++j < bits)
+	{
+		i = -1;
+		while (++i < size)
+		{
+			if ((aroot->next->rank >> j) & 1)
+				mv_rotate (aroot, mv, 'a');
+			else
+				mv_push(aroot, broot, mv, 'b');
+		}
+		ft_b_to_a(aroot, broot, mv);
+	}
 }

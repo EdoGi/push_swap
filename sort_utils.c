@@ -6,12 +6,13 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 22:48:00 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/12/12 20:55:55 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/12/15 21:44:32 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/* Return the rank of the biggest number in stack_root */
 int	ft_max_rank(t_stack *root)
 {
 	t_stack	*it;
@@ -28,6 +29,7 @@ int	ft_max_rank(t_stack *root)
 	return (max);
 }
 
+/* Move element to top of stack using ra move */
 void	ft_down_top_ra(t_stack *root, int element_rank, t_stack *mv, char s)
 {
 	t_stack	*first;
@@ -40,6 +42,7 @@ void	ft_down_top_ra(t_stack *root, int element_rank, t_stack *mv, char s)
 	}
 }
 
+/* Move element to top of stack using rra move */
 void	ft_down_top_rra(t_stack *root, int element_rank, t_stack *mv, char s)
 {
 	t_stack	*first;
@@ -52,12 +55,14 @@ void	ft_down_top_rra(t_stack *root, int element_rank, t_stack *mv, char s)
 	}
 }
 
+/* Push all elements from stack_b to stack_a */
 void	ft_b_to_a(t_stack *aroot, t_stack *broot, t_stack *mv)
 {
 	while (broot->next != broot)
 		mv_push(broot, aroot, mv, 'a');
 }
 
+/* Push all elements from stack_b to stack_a sorting them from max to min */
 void	ft_sort_b_to_a(t_stack *aroot, t_stack *broot, t_stack *mv)
 {
 	t_stack	*it;

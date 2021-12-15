@@ -6,7 +6,7 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 20:27:47 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/12/15 21:20:48 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/12/15 21:38:58 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	ft_fill_stack_a(t_stack *aroot, char *val)
 	return (1);
 }
 
-/* SetUp (Inputs, Parsing, Filling A stack) & handle Error message */
+/* SetUp (Inputs, Parsing, Filling stack_a & handle Error message */
 t_stack	*ft_setup(int ac, char **av, t_stack *aroot, t_stack *broot)
 {
 	int		i;
@@ -73,6 +73,7 @@ t_stack	*ft_setup(int ac, char **av, t_stack *aroot, t_stack *broot)
 	return (mv);
 }
 
+/* Sort stack_a using various sorting method (for 3, 10, 100, 500 numbers) */
 void	ft_sorting(t_stack *aroot, t_stack *broot, t_stack *mv, int ac)
 {
 	if (ac <= 4)
