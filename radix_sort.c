@@ -6,9 +6,10 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 22:55:28 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/12/12 22:55:38 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/12/15 19:21:26 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+void	ft_sort_big(t_stack *aroot, t_stack *broot, t_stack *mv)
