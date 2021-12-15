@@ -6,7 +6,7 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 18:33:05 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/12/10 22:53:07 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/12/12 23:42:52 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ t_stack	*ft_createstk(void)
 	t_stack	*root;
 
 	root = malloc(sizeof(t_stack));
-	if (root)
+	if (!root)
+		return (NULL);
+	else if (root)
 	{
 		root->next = root;
 		root->prev = root;

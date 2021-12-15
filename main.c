@@ -6,7 +6,7 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 20:27:47 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/12/12 21:21:53 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/12/15 18:50:30 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,18 +53,19 @@ t_stack	*ft_setup(int ac, char **av, t_stack *aroot, t_stack *broot)
 	int		i;
 	t_stack	*mv;
 
-	if (ac < 2)
-		return (0);
 	i = ac;
 	mv = ft_createstk();
+	if (!mv)
+	{
+		ft_stk_supercleaner(aroot, broot, NULL, NULL);
+		return (NULL);
+	}
 	while (--i > 0)
 	{
 		if (!(ft_fill_stack_a(aroot, av[i])))
 		{
 			ft_putstr_fd("Error\n", 2);
-			ft_stkclean(broot);
-			ft_stkclean(aroot);
-			ft_stkclean(mv);
+			ft_stk_supercleaner(mv, broot, aroot, NULL);
 			return (0);
 		}
 	}
@@ -72,22 +73,8 @@ t_stack	*ft_setup(int ac, char **av, t_stack *aroot, t_stack *broot)
 	return (mv);
 }
 
-int	main(int ac, char **av)
+void	ft_sorting(t_stack *aroot, t_stack *broot, t_stack *mv, int ac)
 {
-	t_stack	*aroot;
-	t_stack	*broot;
-	t_stack	*mv;
-
-	aroot = ft_createstk();
-	broot = ft_createstk();
-	if (!(aroot) || !(broot))
-		return (0);
-	mv = ft_setup(ac, av, aroot, broot);
-	if (!mv)
-		return (0);
-	ft_set_rank(aroot);
-	if (ft_is_sorted(aroot))
-		return (0);
 	if (ac <= 4)
 		ft_sort_three(aroot, mv);
 	else if (ac <= 11)
@@ -98,4 +85,32 @@ int	main(int ac, char **av)
 		ft_sort_medium(aroot, broot, mv, (ft_stack_size(aroot) / 10));
 	ft_print_mooves(mv);
 	ft_stk_supercleaner(mv, broot, aroot, NULL);
+}
+
+int	main(int ac, char **av)
+{
+	t_stack	*aroot;
+	t_stack	*broot;
+	t_stack	*mv;
+
+	aroot = ft_createstk();
+	broot = ft_createstk();
+	if (!(aroot) || !(broot) || (ac < 2))
+	{
+		if (aroot)
+			ft_stkclean(aroot);
+		if (broot)
+			ft_stkclean(broot);
+		return (0);
+	}
+	mv = ft_setup(ac, av, aroot, broot);
+	if (!mv)
+		return (0);
+	ft_set_rank(aroot);
+	if (ft_is_sorted(aroot))
+	{
+		ft_stk_supercleaner (mv, aroot, broot, NULL);
+		return (0);
+	}
+	ft_sorting(aroot, broot, mv, ac);
 }
