@@ -6,7 +6,7 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 20:27:47 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/12/15 19:21:54 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/12/15 21:20:48 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,8 @@ void	ft_sorting(t_stack *aroot, t_stack *broot, t_stack *mv, int ac)
 		ft_sort_small(aroot, broot, mv);
 	else if (ac <= 101)
 		ft_sort_medium(aroot, broot, mv, (ft_stack_size(aroot) / 5));
-	else if (ac >= 101)
-		ft_sort_medium(aroot, broot, mv, (ft_stack_size(aroot) / 10));
+	else
+		ft_sort_big(aroot, broot, mv);
 	ft_print_mooves(mv);
 	ft_stk_supercleaner(mv, broot, aroot, NULL);
 }

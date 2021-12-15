@@ -6,7 +6,7 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 17:21:14 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/12/13 00:16:47 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/12/15 19:52:52 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void	ft_sorting(t_stack *aroot, t_stack *broot, t_stack *mv, int ac);
 void	ft_sort_three(t_stack *aroot, t_stack *mv);
 void	ft_sort_small(t_stack *aroot, t_stack *broot, t_stack *mv);
 void	ft_sort_medium(t_stack *aroot, t_stack *broot, t_stack *mv, int chunk);
+void	ft_sort_big(t_stack *aroot, t_stack *broot, t_stack *mv);
 void	ft_down_top_rra(t_stack *root, int element_rank, t_stack *mv, char s);
 void	ft_down_top_ra(t_stack *root, int element_rank, t_stack *mv, char s);
 void	ft_b_to_a(t_stack *aroot, t_stack *broot, t_stack *mv);
