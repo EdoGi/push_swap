@@ -6,7 +6,7 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 21:23:20 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/12/15 21:44:35 by egiacomi         ###   ########.fr       */
+/*   Updated: 2021/12/17 21:58:07 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int	ft_exist(t_stack *aroot, int nbr)
 /* Check whether the nbr is greater than INT_MAX */
 int	ft_islong(long nbr)
 {
-	if ((nbr > INT_MAX))
+	if ((nbr > INT_MAX) || (nbr > INT_MIN))
 		return (1);
 	return (0);
 }
