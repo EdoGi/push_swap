@@ -6,7 +6,7 @@
 /*   By: egiacomi <egiacomi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 21:23:20 by egiacomi          #+#    #+#             */
-/*   Updated: 2021/12/17 22:11:00 by egiacomi         ###   ########.fr       */
+/*   Updated: 2022/01/12 23:39:30 by egiacomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ int	ft_isnumber(char *arg)
 		return (0);
 	if (arg[i] == '-')
 		i++;
+	if (arg[i] == '\0')
+		return (0);
 	while (arg[i])
 	{
 		if (!(ft_isdigit(arg[i])))
@@ -74,7 +76,7 @@ int	ft_exist(t_stack *aroot, int nbr)
 	return (0);
 }
 
-/* Check whether the nbr is greater than INT_MAX */
+/* Check whether the nbr is greater than INT_MAX or smaller than INT_MIN*/
 int	ft_islong(long nbr)
 {
 	if ((nbr > INT_MAX) || (nbr < INT_MIN))
